@@ -1,0 +1,14 @@
+timestamp=[2021-03-11 14:27:54], mode=WORKBENCH_START, duration=0:00:07.108, duration_ms=7108, data={}
+timestamp=[2021-03-11 14:27:55], mode=WORKBENCH_UI_INIT, duration=0:00:00.413, duration_ms=413, data={editors_count=0, platform_editors_count=0, projects_count=0, platform_projects_count=0, active_platform_editor=false, projects=}
+timestamp=[2021-03-11 14:27:59], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:04.008, duration_ms=4008, data={}
+timestamp=[2021-03-11 14:30:40], mode=WORKBENCH_START, duration=0:00:06.356, duration_ms=6356, data={}
+timestamp=[2021-03-11 14:30:41], mode=WORKBENCH_UI_INIT, duration=0:00:00.703, duration_ms=703, data={editors_count=0, platform_editors_count=0, projects_count=1, platform_projects_count=0, active_platform_editor=false, projects=RemoteSystemsTempFiles}
+timestamp=[2021-03-11 14:30:44], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:03.593, duration_ms=3593, data={}
+timestamp=[2021-03-11 14:40:15], mode=PLATFORM_CREATION, duration=0:00:19.306, duration_ms=19306, data={platform_source=dsa, os=standalone, processor=psu_cortexa53, platform=null}
+timestamp=[2021-03-11 14:51:27], mode=PLATFORM_GENERATION, duration=0:00:49.625, duration_ms=49625, data={name=imx219_2020_2}
+timestamp=[2021-03-12 14:48:51], mode=WORKBENCH_START, duration=0:00:08.555, duration_ms=8555, data={}
+timestamp=[2021-03-12 14:48:52], mode=WORKBENCH_UI_INIT, duration=0:00:01.298, duration_ms=1298, data={editors_count=1, platform_editors_count=1, projects_count=2, platform_projects_count=1, active_platform_editor=true, projects=RemoteSystemsTempFiles,imx219_2020_2}
+timestamp=[2021-03-12 14:48:56], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:04.345, duration_ms=4345, data={}
+timestamp=[2021-03-25 15:30:20], mode=WORKBENCH_START, duration=0:00:07.895, duration_ms=7895, data={}
+timestamp=[2021-03-25 15:30:21], mode=WORKBENCH_UI_INIT, duration=0:00:01.452, duration_ms=1452, data={editors_count=1, platform_editors_count=1, projects_count=2, platform_projects_count=1, active_platform_editor=true, projects=RemoteSystemsTempFiles,imx219_2020_2}
+timestamp=[2021-03-25 15:30:25], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:04.272, duration_ms=4272, data={}

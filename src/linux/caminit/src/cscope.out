@@ -1,0 +1,1140 @@
+cscope 15 $HOME/vivado/ultra96_design/src/linux/caminit/src               0000006505
+	@camcfg.cc
+
+1 
+	~<uni¡d.h
+>
+
+3 
+	$wr™e_»g
+(
+fd
+, 
+addr
+, 
+wr™e_d©a
+)
+
+5 
+d©a
+[3];
+
+7 
+d©a
+[0] = (
+addr
+ >> 8) & 0xff;
+
+8 
+d©a
+[1] = 
+addr
+ & 0xff;
+
+9 
+d©a
+[2] = 
+wr™e_d©a
+;
+
+10 
+	`wr™e
+(
+fd
+, 
+d©a
+, 3);
+
+13 
+	}
+}
+
+	@camcfg.h
+
+1 #iâdeà
+CAMCFG_H
+
+
+2 
+	#CAMCFG_H
+
+
+	)
+
+4 
+	s_cÚfig_t
+ {
+
+5 
+	maddr
+;
+
+6 
+	mv®
+;
+
+7 } 
+	tcÚfig_t
+;
+
+9 
+š™_ov5640
+(
+e_»sÞutiÚ
+ 
+»sÞutiÚ
+);
+
+10 
+š™_imx219
+(
+e_»sÞutiÚ
+ 
+»sÞutiÚ
+);
+
+11 
+wr™e_»g
+(
+fd
+, 
+addr
+, 
+wr™e_d©a
+);
+
+	@caminit.cc
+
+1 
+	~<¡dio.h
+>
+
+2 
+	~<¡ršg.h
+>
+
+3 
+	~<uni¡d.h
+>
+
+4 
+	~<sys/ioùl.h
+>
+
+5 
+	~<lšux/i2c-dev.h
+>
+
+6 
+	~<sys/¡©.h
+>
+
+7 
+	~<sys/ty³s.h
+>
+
+8 
+	~<dœ’t.h
+>
+
+9 
+	~<fúŽ.h
+>
+
+10 
+	~<sys/mmª.h
+>
+
+11 
+	~"ÿmš™.h
+"
+
+12 
+	~"ÿmcfg.h
+"
+
+14 (*
+š™_ÿm”a
+[])(
+e_»sÞutiÚ
+ 
+»sÞutiÚ
+) = {
+
+15 
+š™_ov5640
+,
+
+16 
+š™_imx219
+
+
+17 
+	}
+};
+
+19 
+	$£t_ÿm_gpio
+(
+v®
+)
+
+21 
+fd
+;
+
+22 
+©Œ
+[32];
+
+24 
+DIR
+ *
+dœ
+ = 
+	`Ý’dœ
+("/sys/class/gpio/gpio375");
+
+25 ià(!
+dœ
+) {
+
+26 
+fd
+ = 
+	`Ý’
+("/sys/þass/gpio/expÜt", 
+O_WRONLY
+);
+
+27 ià(
+fd
+ < 0) {
+
+28 
+	`³¼Ü
+("open(/sys/class/gpio/export)");
+
+31 
+	`¡rýy
+(
+©Œ
+, "375");
+
+32 
+	`wr™e
+(
+fd
+, 
+©Œ
+, 
+	`¡¾’
+(attr));
+
+33 
+	`þo£
+(
+fd
+);
+
+34 
+dœ
+ = 
+	`Ý’dœ
+("/sys/class/gpio/gpio375");
+
+35 ià(!
+dœ
+) {
+
+36 
+	`³¼Ü
+("opendir(/sys/class/gpio/gpio375)");
+
+40 
+	`þo£dœ
+(
+dœ
+);
+
+42 
+fd
+ = 
+	`Ý’
+("/sys/þass/gpio/gpio375/dœeùiÚ", 
+O_WRONLY
+);
+
+43 ià(
+fd
+ < 0) {
+
+44 
+	`³¼Ü
+("open(/sys/class/gpio/gpio375/direction)");
+
+47 
+	`¡rýy
+(
+©Œ
+, "out");
+
+48 
+	`wr™e
+(
+fd
+, 
+©Œ
+, 
+	`¡¾’
+(attr));
+
+49 
+	`þo£
+(
+fd
+);
+
+51 
+fd
+ = 
+	`Ý’
+("/sys/þass/gpio/gpio375/v®ue", 
+O_WRONLY
+);
+
+52 ià(
+fd
+ < 0) {
+
+53 
+	`³¼Ü
+("open(/sys/class/gpio/gpio375/value)");
+
+56 
+	`¥rštf
+(
+©Œ
+, "%d", 
+v®
+);
+
+57 
+	`wr™e
+(
+fd
+, 
+©Œ
+, 
+	`¡¾’
+(attr));
+
+58 
+	`þo£
+(
+fd
+);
+
+61 
+	}
+}
+
+63 
+	$ÿmš™
+(
+e_£nsÜ
+ 
+£nsÜ
+, 
+e_»sÞutiÚ
+ 
+»sÞutiÚ
+)
+
+65 
+	`£t_ÿm_gpio
+(0);
+
+66 
+	`u¦“p
+(300*1000);
+
+67 
+	`£t_ÿm_gpio
+(1);
+
+68 
+	`u¦“p
+(300*1000);
+
+70 
+š™_ÿm”a
+[
+£nsÜ
+](
+»sÞutiÚ
+);
+
+73 
+	}
+}
+
+	@caminit.h
+
+1 #iâdeà
+CAMINIT_H
+
+
+2 
+	#CAMINIT_H
+
+
+	)
+
+5 
+	mSENSOR_OV5640
+,
+
+6 
+	mSENSOR_IMX219
+,
+
+7 } 
+	te_£nsÜ
+;
+
+10 
+	mRESOLUTION_1920_1080
+,
+
+11 
+	mRESOLUTION_1280_720
+,
+
+12 
+	mRESOLUTION_960_540
+,
+
+13 
+	mRESOLUTION_640_480
+,
+
+14 
+	mRESOLUTION_640_360
+,
+
+15 
+	mRESOLUTION_320_240
+,
+
+16 
+	mRESOLUTION_320_200
+
+
+17 } 
+	te_»sÞutiÚ
+;
+
+19 
+ÿmš™
+(
+e_£nsÜ
+ 
+£nsÜ
+, 
+e_»sÞutiÚ
+ 
+»sÞutiÚ
+);
+
+	@imx219.cc
+
+1 
+	~<¡dio.h
+>
+
+2 
+	~<sys/ty³s.h
+>
+
+3 
+	~<sys/¡©.h
+>
+
+4 
+	~<fúŽ.h
+>
+
+5 
+	~<sys/ioùl.h
+>
+
+6 
+	~<uni¡d.h
+>
+
+7 
+	~<lšux/i2c-dev.h
+>
+
+8 
+	~"ÿmš™.h
+"
+
+9 
+	~"ÿmcfg.h
+"
+
+11 
+cÚfig_t
+ 
+	gcfg_imx219_š™_1920_1080_30
+[] =
+
+77 
+cÚfig_t
+ 
+	gcfg_imx219_š™_1280_720_30
+[] =
+
+148 
+cÚfig_t
+ 
+	gcfg_imx219_š™_640_480_30
+[] =
+
+228 
+	$š™_imx219
+(
+e_»sÞutiÚ
+ 
+»sÞutiÚ
+)
+
+230 
+fd
+ = 
+	`Ý’
+("/dev/i2c-4", 
+O_RDWR
+);
+
+231 
+addr
+ = 0x00;
+
+232 
+d©0
+ = 0x5a, 
+d©1
+ = 0xa5;
+
+234 ià(
+fd
+ < 0) {
+
+235 
+	`³¼Ü
+("open(/dev/i2c-4)");
+
+238 
+	`ioùl
+(
+fd
+, 
+I2C_SLAVE
+, (0x21 >> 1));
+
+240 
+	`wr™e
+(
+fd
+, &
+addr
+, 2);
+
+241 
+	`»ad
+(
+fd
+, &
+d©0
+, 1);
+
+242 
+addr
+ = 0x0100;
+
+243 
+	`wr™e
+(
+fd
+, &
+addr
+, 2);
+
+244 
+	`»ad
+(
+fd
+, &
+d©1
+, 1);
+
+246 
+	`´štf
+("ID = 0x%x, 0x%x\n", 
+d©0
+, 
+d©1
+);
+
+249 
+	`wr™e_»g
+(
+fd
+, 0x0100, 0x00);
+
+250 
+	`u¦“p
+(500*1000);
+
+252 
+cÚfig_t
+ *
+cfg
+;
+
+253 
+num_cmds
+;
+
+254 
+»sÞutiÚ
+) {
+
+255 
+RESOLUTION_640_480
+:
+
+256 
+RESOLUTION_320_240
+:
+
+257 
+RESOLUTION_320_200
+:
+
+258 
+cfg
+ = 
+cfg_imx219_š™_640_480_30
+;
+
+259 
+num_cmds
+ = (
+cfg_imx219_š™_640_480_30
+) / (cfg_imx219_init_640_480_30[0]);
+
+261 
+RESOLUTION_1280_720
+:
+
+262 
+RESOLUTION_640_360
+:
+
+263 
+cfg
+ = 
+cfg_imx219_š™_1280_720_30
+;
+
+264 
+num_cmds
+ = (
+cfg_imx219_š™_1280_720_30
+) / (cfg_imx219_init_1280_720_30[0]);
+
+266 
+RESOLUTION_1920_1080
+:
+
+267 
+RESOLUTION_960_540
+:
+
+268 
+cfg
+ = 
+cfg_imx219_š™_1920_1080_30
+;
+
+269 
+num_cmds
+ = (
+cfg_imx219_š™_1920_1080_30
+) / (cfg_imx219_init_1920_1080_30[0]);
+
+275 
+i
+ = 0; i < 
+num_cmds
+; i++) {
+
+276 
+	`wr™e_»g
+(
+fd
+, 
+cfg
+[
+i
+].
+addr
+, cfg[i].
+v®
+);
+
+279 
+gaš
+ = 4;
+
+280 
+addr
+ = 0x157;
+
+281 
+d©0
+ = 256 - 256 / 
+gaš
+;
+
+282 
+	`wr™e_»g
+(
+fd
+, 
+addr
+, 
+d©0
+);
+
+284 
+	`þo£
+(
+fd
+);
+
+287 
+	}
+}
+
+	@main.cc
+
+1 
+	~<¡dio.h
+>
+
+2 
+	~"ÿmš™.h
+"
+
+4 
+	$maš
+(
+¬gc
+, *
+¬gv
+[])
+
+6 
+»t
+;
+
+8 
+»t
+ = 
+	`ÿmš™
+(
+SENSOR_IMX219
+, 
+RESOLUTION_640_480
+);
+
+10  
+»t
+;
+
+11 
+	}
+}
+
+	@ov5640.cc
+
+1 
+	~<¡dio.h
+>
+
+2 
+	~<sys/ty³s.h
+>
+
+3 
+	~<sys/¡©.h
+>
+
+4 
+	~<fúŽ.h
+>
+
+5 
+	~<sys/ioùl.h
+>
+
+6 
+	~<uni¡d.h
+>
+
+7 
+	~<lšux/i2c-dev.h
+>
+
+8 
+	~"ÿmš™.h
+"
+
+9 
+	~"ÿmcfg.h
+"
+
+11 
+cÚfig_t
+ 
+	gcfg_ov5640_advªûd_awb_
+[] =
+
+35 
+cÚfig_t
+ 
+	gcfg_ov5640_š™
+[] =
+
+153 
+cÚfig_t
+ 
+	gcfg_ov5640_š™_1920_1080_30
+[] =
+
+235 
+cÚfig_t
+ 
+	gcfg_ov5640_š™_1280_720_30
+[] =
+
+317 
+cÚfig_t
+ 
+	gcfg_ov5640_š™_640_480_30
+[] =
+
+391 
+	$š™_ov5640
+(
+e_»sÞutiÚ
+ 
+»sÞutiÚ
+)
+
+393 
+fd
+ = 
+	`Ý’
+("/dev/i2c-4", 
+O_RDWR
+);
+
+394 
+addr
+ = 0x0A30;
+
+395 
+d©0
+ = 0x5a, 
+d©1
+ = 0xa5;
+
+396 
+cÚfig_t
+ *
+cfg
+;
+
+397 
+num_cmds
+;
+
+399 ià(
+fd
+ < 0) {
+
+400 
+	`³¼Ü
+("open(/dev/i2c-4)");
+
+403 
+	`ioùl
+(
+fd
+, 
+I2C_SLAVE
+, (0x78 >> 1));
+
+405 
+	`wr™e
+(
+fd
+, &
+addr
+, 2);
+
+406 
+	`»ad
+(
+fd
+, &
+d©0
+, 1);
+
+407 
+addr
+ = 0x0B30;
+
+408 
+	`wr™e
+(
+fd
+, &
+addr
+, 2);
+
+409 
+	`»ad
+(
+fd
+, &
+d©1
+, 1);
+
+411 
+	`´štf
+("ID = 0x%x, 0x%x\n", 
+d©0
+, 
+d©1
+);
+
+413 
+	`wr™e_»g
+(
+fd
+, 0x3103, 0x11);
+
+414 
+	`wr™e_»g
+(
+fd
+, 0x3008, 0x82);
+
+416 
+	`u¦“p
+(1000 * 1000);
+
+418 
+cfg
+ = 
+cfg_ov5640_š™
+;
+
+419 
+num_cmds
+ = (
+cfg_ov5640_š™
+) / (cfg_ov5640_init[0]);
+
+420 
+i
+ = 0; i < 
+num_cmds
+; i++) {
+
+421 
+	`wr™e_»g
+(
+fd
+, 
+cfg
+[
+i
+].
+addr
+, cfg[i].
+v®
+);
+
+424 
+	`wr™e_»g
+(
+fd
+, 0x3008, 0x42);
+
+426 
+»sÞutiÚ
+) {
+
+427 
+RESOLUTION_640_480
+:
+
+428 
+RESOLUTION_320_240
+:
+
+429 
+RESOLUTION_320_200
+:
+
+430 
+cfg
+ = 
+cfg_ov5640_š™_640_480_30
+;
+
+431 
+num_cmds
+ = (
+cfg_ov5640_š™_640_480_30
+) / (cfg_ov5640_init_640_480_30[0]);
+
+433 
+RESOLUTION_1280_720
+:
+
+434 
+RESOLUTION_640_360
+:
+
+435 
+cfg
+ = 
+cfg_ov5640_š™_1280_720_30
+;
+
+436 
+num_cmds
+ = (
+cfg_ov5640_š™_1280_720_30
+) / (cfg_ov5640_init_1280_720_30[0]);
+
+438 
+RESOLUTION_1920_1080
+:
+
+439 
+RESOLUTION_960_540
+:
+
+440 
+cfg
+ = 
+cfg_ov5640_š™_1920_1080_30
+;
+
+441 
+num_cmds
+ = (
+cfg_ov5640_š™_1920_1080_30
+) / (cfg_ov5640_init_1920_1080_30[0]);
+
+447 
+i
+ = 0; i < 
+num_cmds
+; i++) {
+
+448 
+	`wr™e_»g
+(
+fd
+, 
+cfg
+[
+i
+].
+addr
+, cfg[i].
+v®
+);
+
+451 
+cfg
+ = 
+cfg_ov5640_advªûd_awb_
+;
+
+452 
+num_cmds
+ = (
+cfg_ov5640_advªûd_awb_
+) / (cfg_ov5640_advanced_awb_[0]);
+
+453 
+i
+ = 0; i < 
+num_cmds
+; i++) {
+
+454 
+	`wr™e_»g
+(
+fd
+, 
+cfg
+[
+i
+].
+addr
+, cfg[i].
+v®
+);
+
+457 
+	`wr™e_»g
+(
+fd
+, 0x3008, 0x02);
+
+459 
+	`þo£
+(
+fd
+);
+
+462 
+	}
+}
+
+	@
+1
+.
+0
+7
+68
+camcfg.cc
+camcfg.h
+caminit.cc
+caminit.h
+imx219.cc
+main.cc
+ov5640.cc

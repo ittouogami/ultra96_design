@@ -10,55 +10,108 @@
 
 static config_t cfg_imx219_init_1920_1080_30[] =
 {
+    // software reset
 	{0x0100, 0x00},
 	{0x0103, 0x01},
+    // Access Code needed to access registers over 0x3000
 	{0x30EB, 0x05},
 	{0x30EB, 0x0C},
 	{0x300A, 0xFF},
 	{0x300B, 0xFF},
 	{0x30EB, 0x05},
 	{0x30EB, 0x09},
+
 	//{0x0114, 0x03},
 	{0x0114, 0x01},  // CSI_LANE_MODE changed from 3 to 1
+
+    //dphy control:Auto
 	{0x0128, 0x00},
+    //external clock frequency = 24MHz
 	{0x012A, 0x18},
 	{0x012B, 0x00},
+
+    //Coarse Time = 565 (Exposure, can be adjusted while the camera is runing)
+    //{0x015A, 0x01},
+    //{0x015B, 0x35},
+    // Frame Length: 0x48e
 	{0x0160, ((0x48e >> 8) & 0xFF)},
 	{0x0161, (0x48e & 0xFF)},
+
+    //Line Length: 0xD78
 	{0x0162, ((0xD78 >> 8) & 0xFF)},
 	{0x0163, (0xD78 & 0xFF)},
+
+    // Window Width:
+    // crop_rect.left:
 	{0x0164, 0x02},
 	{0x0165, 0xA8},
+    //crop_rect.width:
 	{0x0166, 0x0A},
 	{0x0167, 0x27},
+
+    // Window Height:
+    // crop_rect.top:
 	{0x0168, 0x02},
 	{0x0169, 0xB4},
+    // crop_rect.height:
 	{0x016A, 0x06},
 	{0x016B, 0xEB},
+
+    // image width = 1920
 	{0x016C, 0x07},
 	{0x016D, 0x80},
+    // image height = 1080
 	{0x016E, 0x04},
 	{0x016F, 0x38},
+
+    // X odd increment
 	{0x0170, 0x01},
+    // Y odd increment
 	{0x0171, 0x01},
 
-	{0x0172, 0x03},  // added to correct color
+	//{0x0172, 0x03},  // added to correct color
 
+    // Binning Mode: X
 	{0x0174, 0x00},
+    // Binning Mode: Y
 	{0x0175, 0x00},
+
+    //Clock Settings
+    //CSI data format:10bits
 	{0x018C, 0x0A},
 	{0x018D, 0x0A},
+
+    //PIXEL CLOCK USED TO DRIVE SENSOR
+
+    // VTPXCK_DIV: 4: 1/4, 5: 1/5, 8: 1/8, 10: 1/10
 	//{0x0301, 0x05},
 	{0x0301, 0x0A},  // VTPXCK_DIV changed from 0x05 to 0x0A
+
+    // VTSYS_DIV = 1: Divide by 1
 	{0x0303, 0x01},
+
+    // PREPLLCK_VT_DIV: 1: 1/1, 2: 1/2, 3: 1/3
 	{0x0304, 0x03},
+
+    // PREPLLCK_OP_DIV: 1: 1/1, 2: 1/2, 3: 1/3
 	{0x0305, 0x03},
+
+    // PLL_VT_MPY = 57 (Multiplier)
 	{0x0306, 0x00},
-	{0x0307, 0x57}, //0x51
-	{0x0309, 0x0A},
+
+	//{0x0307, 0x57}, //0x51
+    // OPPXCK_DIV (pixel bit depth): 8:1/8 10:1/10
+	{0x0309, 0x0A},//10bit
+
+    // OPSYSCK_DIV (divide by two for double data rate): 1:1/2
 	{0x030B, 0x01},
+
+    // PLL_OP_MPY = 114 (Multiplier)
 	{0x030C, 0x00},
 	{0x030D, 0x5A}, //0x54
+    //Pixel Clock (10-bit Config): EXCLK_FREQ / PREPLLLCK_VT_DIV * PLL_VT_MPY / VTPXCK_DIV: 24MHz / 3 * 57 / 5 = 91 MHz
+
+    // CIS tunning
 	{0x455E, 0x00},
 	{0x471E, 0x4B},
 	{0x4767, 0x0F},
@@ -71,6 +124,8 @@ static config_t cfg_imx219_init_1920_1080_30[] =
 	{0x4793, 0x10},
 	{0x4797, 0x0E},
 	{0x479B, 0x0E},
+
+    //Start Video Stream
 	{0x0100, 0x01}
 };
 
@@ -147,59 +202,116 @@ static config_t cfg_imx219_init_1280_720_30[] =
 
 static config_t cfg_imx219_init_640_480_30[] =
 {
+    // software reset
 	{0x0100, 0x00},
 	{0x0103, 0x01},
+    // Access Code needed to access registers over 0x3000
 	{0x30EB, 0x05},
 	{0x30EB, 0x0C},
 	{0x300A, 0xFF},
 	{0x300B, 0xFF},
 	{0x30EB, 0x05},
 	{0x30EB, 0x09},
+
 	//{0x0114, 0x03},
 	{0x0114, 0x01},  // CSI_LANE_MODE changed from 3 to 1
+
+    //dphy control:Auto
 	{0x0128, 0x00},
+    //external clock frequency = 24MHz
 	{0x012A, 0x18},
 	{0x012B, 0x00},
+
+    // analog gain
+	{0x0157, 0x80},
+    // Digital gain 0x200
+	{0x0158, 0x02},
+	{0x0159, 0x00},
+    //Coarse Time = 565 (Exposure, can be adjusted while the camera is runing)
+    //389
+    //{0x015A, 0x01},
+    //{0x015B, 0x85},
+    {0x015A, 0x02},
+    {0x015B, 0x35},
+    // Frame Length: 0xa2f
 	{0x0160, 0x0A},
 	{0x0161, 0x2F},
+    //Line Length: 0xde8
 	{0x0162, 0x0D},
 	{0x0163, 0xE8},
+
+    // Window Width:
+    // crop_rect.left:
 	{0x0164, 0x03},
 	{0x0165, 0xE8},
-	/* X_ADD_END_A */
+    //crop_rect.width:
 	{0x0166, 0x0D},
 	{0x0167, 0xE7},
-	/* Y_ADD_STA_A and Y_ADD_END_A */
+
+    // Window Height:
+    // crop_rect.top:
 	{0x0168, 0x01},
 	{0x0169, 0xF0},
+    // crop_rect.height:
 	{0x016A, 0x09},
 	{0x016B, 0x6F},
-	/* x_output_size and y_output_size */
+
+    // image width = 640
 	{0x016C, 0x02},
 	{0x016D, 0x80},
+    // image height = 480
 	{0x016E, 0x01},
 	{0x016F, 0xE0},
+
+    // X odd increment
 	{0x0170, 0x01},
+    // Y odd increment
 	{0x0171, 0x01},
 
-	{0x0172, 0x03},  // added to correct color
+    // orientation bit[0]:hori bit[1]:vert
+	{0x0172, 0x03},
 
+    // Binning Mode: X
 	{0x0174, 0x02},  /* binning mode x4 */
+    // Binning Mode: Y
 	{0x0175, 0x02},
+
+    //Clock Settings
+    //CSI data format:10bits
 	{0x018C, 0x0A},
 	{0x018D, 0x0A},
 
+    //PIXEL CLOCK USED TO DRIVE SENSOR
+
+    // VTPXCK_DIV: 4: 1/4, 5: 1/5, 8: 1/8, 10: 1/10
 	{0x0301, 0x05},
 	//{0x0301, 0x0A},  // VTPXCK_DIV changed from 0x05 to 0x0A
+
+    // VTSYS_DIV = 1: Divide by 1
 	{0x0303, 0x01},
+
+    // PREPLLCK_VT_DIV: 1: 1/1, 2: 1/2, 3: 1/3
 	{0x0304, 0x02},
+
+    // PREPLLCK_OP_DIV: 1: 1/1, 2: 1/2, 3: 1/3
 	{0x0305, 0x02},
+
+    // PLL_VT_MPY = 57 (Multiplier)
 	{0x0306, 0x00},
-	{0x0307, 0x57}, //0x51
+
+	//{0x0307, 0x57}, //0x51
+    // OPPXCK_DIV (pixel bit depth): 8:1/8 10:1/10
 	{0x0309, 0x0A},
+
+    // OPSYSCK_DIV (divide by two for double data rate): 1:1/2
 	{0x030B, 0x01},
+
+    // PLL_OP_MPY = 114 (Multiplier)
 	{0x030C, 0x00},
 	{0x030D, 0x5A}, //0x54
+    //Pixel Clock (10-bit Config): EXCLK_FREQ / PREPLLLCK_VT_DIV * PLL_VT_MPY /     VTPXCK_DIV: 24MHz / 3 * 57 / 5 = 91 MHz
+
+    // CIS tunning
 	{0x455E, 0x00},
 	{0x471E, 0x4B},
 	{0x4767, 0x0F},
@@ -212,6 +324,8 @@ static config_t cfg_imx219_init_640_480_30[] =
 	{0x4793, 0x10},
 	{0x4797, 0x0E},
 	{0x479B, 0x0E},
+
+    //Start Video Stream
 	{0x0100, 0x01}
 };
 

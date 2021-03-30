@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdx:platform sdx:vendor="xilinx.com"
+              sdx:library="sdx"
+              sdx:name="imx219_2020_2"
+              sdx:version="1.0"
+              sdx:schemaVersion="1.0"
+              xmlns:sdx="http://www.xilinx.com/sdx">
+    <sdx:description>
+imx219_2020_2
+    </sdx:description>
+    <sdx:systemConfigurations sdx:defaultConfiguration="imx219_2020_2">
+        <sdx:configuration sdx:name="imx219_2020_2"
+                           sdx:displayName="imx219_2020_2"
+                           sdx:defaultProcessorGroup="standalone_domain"
+                           sdx:runtimes="cpp">
+            <sdx:description>imx219_2020_2</sdx:description>
+            <sdx:bootImages sdx:default="standard">
+                <sdx:image sdx:name="standard"
+                            sdx:bif="imx219_2020_2/boot/imx219_2020_2.bif"
+                            sdx:readme="imx219_2020_2/boot/generic.readme"
+                            sdx:qemuArguments="imx219_2020_2/qemu/pmu_args.txt:imx219_2020_2/qemu/qemu_args.txt"
+                            />
+                <sdx:image sdx:name="standalone_domain"
+                            sdx:bif="imx219_2020_2/boot/imx219_2020_2.bif"
+                            sdx:readme="imx219_2020_2/boot/generic.readme"
+                            sdx:qemuArguments="imx219_2020_2/standalone_domain/qemu/pmu_args.txt:imx219_2020_2/standalone_domain/qemu/qemu_args.txt"
+                            />
+            </sdx:bootImages>
+            <sdx:processorGroup sdx:name="standalone_domain"
+                                sdx:displayName="standalone on psu_cortexa53_0"
+                                sdx:cpuType="cortex-a53"
+                                sdx:cpuInstance="psu_cortexa53_0">
+                <sdx:os sdx:name="standalone"
+                        sdx:displayName="standalone"
+                        sdx:bspLibraryPaths="imx219_2020_2/standalone_domain/bsplib/lib"
+                        sdx:bspIncludePaths="imx219_2020_2/standalone_domain/bspinclude/include"
+                        sdx:bspConfig="imx219_2020_2/standalone_domain/system.mss"
+                />
+            </sdx:processorGroup>
+        </sdx:configuration>
+    </sdx:systemConfigurations>
+</sdx:platform>

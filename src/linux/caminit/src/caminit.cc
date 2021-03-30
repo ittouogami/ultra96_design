@@ -21,36 +21,36 @@ static int set_cam_gpio(int val)
 	int fd;
 	char attr[32];
 
-	DIR *dir = opendir("/sys/class/gpio/gpio375");
+	DIR *dir = opendir("/sys/class/gpio/gpio37");
 	if (!dir) {
 		fd = open("/sys/class/gpio/export", O_WRONLY);
 		if (fd < 0) {
 			perror("open(/sys/class/gpio/export)");
 			return -1;
 		}
-		strcpy(attr, "375");
+		strcpy(attr, "37");
 		write(fd, attr, strlen(attr));
 		close(fd);
-		dir = opendir("/sys/class/gpio/gpio375");
+		dir = opendir("/sys/class/gpio/gpio37");
 		if (!dir) {
-			perror("opendir(/sys/class/gpio/gpio375)");
+			perror("opendir(/sys/class/gpio/gpio37)");
 			return -1;
 		}
 	}
 	closedir(dir);
 
-	fd = open("/sys/class/gpio/gpio375/direction", O_WRONLY);
+	fd = open("/sys/class/gpio/gpio37/direction", O_WRONLY);
 	if (fd < 0) {
-		perror("open(/sys/class/gpio/gpio375/direction)");
+		perror("open(/sys/class/gpio/gpio37/direction)");
 		return -1;
 	}
 	strcpy(attr, "out");
 	write(fd, attr, strlen(attr));
 	close(fd);
 
-	fd = open("/sys/class/gpio/gpio375/value", O_WRONLY);
+	fd = open("/sys/class/gpio/gpio37/value", O_WRONLY);
 	if (fd < 0) {
-		perror("open(/sys/class/gpio/gpio375/value)");
+		perror("open(/sys/class/gpio/gpio37/value)");
 		return -1;
 	}
 	sprintf(attr, "%d", val);

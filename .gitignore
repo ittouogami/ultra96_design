@@ -3,5 +3,6 @@ ultra96_design
 *.log
 *.str
 *.bin
+.vscode
 .cproject
 .project
