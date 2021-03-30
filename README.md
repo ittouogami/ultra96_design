@@ -12,6 +12,11 @@ You also need a debian SD card image.
 ## Getting started
 
 - Follow the steps on the [Fixstars blog](https://proc-cpuinfo.fixstars.com/2019/01/ultra96-linux-mipi-camera-setup/).
+    ```.sh
+    git clone https://github.com/ittouogami/ultra96_design
+    git submodule init
+    git submodule update
+    ```
 - You need to create project by tcl script when right after cloning the repos.
 Launch vivado and create project by tcl file.
 

@@ -1,6 +1,6 @@
 [submodule "src/linux/driver"]
 	path = src/linux/driver
-	url = https://github.com/fixstars/linux_v4l2_driver.git
+	url = https://github.com/ittouogami/linux_v4l2_driver.git
 [submodule "src/linux/headers"]
 	path = src/linux/headers
-	url = https://github.com/fixstars/linux_headers.git
+	url = https://github.com/ittouogami/linux_headers.git
