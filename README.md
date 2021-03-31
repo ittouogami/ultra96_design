@@ -31,7 +31,13 @@ The convert bitstream to bin. fpga.bin is generated in the hierarchy of ultra96\
 	cd ultra96_design
 	script/bit2bin.sh 
 	```
-
+- Create kernel header modules. You may get an error when building vdso, but ignore it. 
+    ```.sh
+    export ARCH=arm64
+    export CROSS_COMPILE=/opt/Xilinx/Vitis/2020.2/gnu/aarch64/lin/aarch64-linux/bin/aarch64-linux-gnu-
+    cd ./ultra96_design/src/linux/headers/linux-headers-5.4.0-xlnx-v2020.1-zynqmp-fpga
+    make modules_prepare
+    ```
 - Create an SDK using vitis.  The vitis workspace is prepared as ./ws in my repos.
 - Modify the makefile for convenience and build the v4l2 kernel module. v4l2.ko will be generated.
 	```.sh
